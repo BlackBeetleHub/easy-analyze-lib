@@ -1,6 +1,6 @@
 export class ProcessModule {
-    constructor(){
 
+    constructor(){
     }
 
     startProcessing(text){
