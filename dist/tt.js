@@ -1,4 +1,4 @@
-let sd = new home.Dictionary("ss ddd dd");
+//let sd = new home.Dictionary("sfsf");
 
 let bigText = "Newspapers are typically published daily or weekly. News magazines are also weekly, but they " +
     "have a magazine format. General-interest newspapers typically publish news articles and feature articles " +
@@ -15,8 +15,8 @@ let bigText = "Newspapers are typically published daily or weekly. News magazine
     "reader \"what it all means\" and persuading them to concur. Papers also include articles which have no " +
     "byline; these articles are written by staff writers.";
 
-//let cleaner = home.ClearPunctuatio();
+let cleaner = new home.ClearPunctuatio();
 
-//let processed = cleaner.startProcessing(bigText);
+let processed = cleaner.startProcessing(bigText);
 
-//console.log(processed);
+console.log(processed);

@@ -1,0 +1,3 @@
+function itsMy() {
+    return "text";
+}
