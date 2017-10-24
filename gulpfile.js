@@ -15,7 +15,7 @@ gulp.task('default', function () {
                 ]
             }
         }))
-        .pipe(plugins.rename('easy.js'))
+        .pipe(plugins.rename('ggg.js'))
         .pipe(gulp.dest('dist'));
 });
 
