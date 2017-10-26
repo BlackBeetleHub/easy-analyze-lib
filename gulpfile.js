@@ -5,7 +5,7 @@ var plugins = require('gulp-load-plugins')();
 var webpack = require('webpack');
 
 
-gulp.task('default', function () {
+gulp.task('browser:build', function () {
     return gulp.src('src/browser.js')
         .pipe(plugins.webpack({
             output: {library: 'StellarBase'},
@@ -31,11 +31,13 @@ gulp.task('lint:src', function() {
         .pipe(plugins.plumber())
         .pipe(plugins.jshint())
         .pipe(plugins.jshint.reporter('jshint-stylish'))
-        .pipe(plugins.jshint.reporter('fail'));
+        .pipe(plugins.jshint.reporter('warning'));
 });
 
-gulp.task('build', function() {
+gulp.task('node:build', function() {
     return gulp.src('src/**/*.js')
         .pipe(plugins.babel())
         .pipe(gulp.dest('lib'));
 });
+
+gulp.task('build', ['lint:src', 'node:build']);

@@ -28,6 +28,7 @@ export class ClearPunctuatio extends ProcessModule{
             text = text.replace(regex, ' ');
         }
         text = text.replace(/\s\s+/g, ' ');
+        text = text.split(" ");
         return text;
     }
 }
