@@ -188,7 +188,7 @@ var home =
 	
 	        _get(Object.getPrototypeOf(ClearPunctuatio.prototype), "constructor", this).call(this);
 	        //TODO: it"s metainfo, need expand in config file. (Best way)
-	        this.IgnoreSymbols = ["\\{", "\\}", "\\!", "\\@", "\\#", "\\$", "\\%", "\\^", "\\&", "\\*", "\\(", "\\)", "\\=", "\\+", "\\<", "\\>", "\\,", "\\.", "\\;", "\\/", "\\~", "\\?", "\\|", "\\[", "\\]", " \\- ", " \\-", "\\- "];
+	        this.IgnoreSymbols = ["\\{", "\\}", "\\!", "\\@", "\\#", "\\$", "\\%", "\\^", "\\&", "\\*", "\\(", "\\)", "\\=", "\\+", "\\<", "\\>", "\\,", "\\.", "\\;", "\\/", "\\~", "\\?", "\\|", "\\[", "\\]", " \\- ", " \\-", "\\- ", "\\'s"];
 	    }
 	
 	    _createClass(ClearPunctuatio, [{
@@ -210,6 +210,7 @@ var home =
 	                text = text.replace(regex, ' ');
 	            }
 	            text = text.replace(/\s\s+/g, ' ');
+	            text = text.split(" ");
 	            return text;
 	        }
 	    }]);

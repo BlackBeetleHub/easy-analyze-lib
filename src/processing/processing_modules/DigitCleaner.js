@@ -8,7 +8,7 @@ export class DigitCleaner extends ProcessModule {
 
     isContainDigit(word) {
         for (let i = 0; i < word.length; i++) {
-            if(isNaN(word[i])){
+            if(!isNaN(word[i])){
                 return true;
             }
         }

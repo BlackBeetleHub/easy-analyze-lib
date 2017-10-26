@@ -1,17 +1,24 @@
 var assert = require('chai').assert;
 
-const mylib = require('../lib/index');
+const home = require('../lib/index');
+
+function clearText(text) {
+    let processingModules = [new home.ClearPunctuatio(), new home.DuplicationCleaner(), new home.DigitCleaner()];
+
+    for(let i = 0; i < processingModules.length; i++) {
+        text = processingModules[i].startProcessing(text);
+    }
+    return text;
+}
 
 describe("pow", function() {
 
-    let bigText = "Bigsdf sdhfsdklksgd khsadgh sgkd;lkhsdgklsdhglkasdhg;shdglksdh gh4tihg98iy3ht4wgiohngj khsg hsdig sdg lsd gdg 1 1 1 1 1 ";
+    let bigText = "It's very big hard test, but in 1999-year he die in alb234, // and now&&^&*(";
 
     it("возводит в n-ю степень", function() {
 
 
-        let clear = new mylib.ClearPunctuatio();
-
-        let res = clear.startProcessing(bigText);
+        let res = clearText(bigText);
 
         console.log(res);
     });
