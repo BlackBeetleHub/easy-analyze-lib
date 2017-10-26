@@ -7,7 +7,8 @@ export class ClearPunctuatio extends ProcessModule{
         //TODO: it"s metainfo, need expand in config file. (Best way)
         this.IgnoreSymbols = [
             "\\{", "\\}", "\\!", "\\@", "\\#", "\\$", "\\%", "\\^", "\\&", "\\*", "\\(", "\\)", "\\=", "\\+", "\\<",
-            "\\>", "\\,", "\\.", "\\;", "\\/", "\\~", "\\?", "\\|", "\\[", "\\]", " \\- ", " \\-", "\\- ", "\\'s"
+            "\\>", "\\,", "\\.", "\\;", "\\/", "\\~", "\\?", "\\|", "\\[", "\\]", " \\- ", " \\-", "\\- ",
+            "(n|)\\'.\\w*", "not"  // it's delete next matches (n'*, '*) example didn't -> did , don't -> do, hasn't, has
         ];
     }
 

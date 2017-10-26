@@ -188,7 +188,8 @@ var home =
 	
 	        _get(Object.getPrototypeOf(ClearPunctuatio.prototype), "constructor", this).call(this);
 	        //TODO: it"s metainfo, need expand in config file. (Best way)
-	        this.IgnoreSymbols = ["\\{", "\\}", "\\!", "\\@", "\\#", "\\$", "\\%", "\\^", "\\&", "\\*", "\\(", "\\)", "\\=", "\\+", "\\<", "\\>", "\\,", "\\.", "\\;", "\\/", "\\~", "\\?", "\\|", "\\[", "\\]", " \\- ", " \\-", "\\- ", "\\'s"];
+	        this.IgnoreSymbols = ["\\{", "\\}", "\\!", "\\@", "\\#", "\\$", "\\%", "\\^", "\\&", "\\*", "\\(", "\\)", "\\=", "\\+", "\\<", "\\>", "\\,", "\\.", "\\;", "\\/", "\\~", "\\?", "\\|", "\\[", "\\]", " \\- ", " \\-", "\\- ", "(n|)\\'.\\w*", "not" // it's delete next matches (n'*, '*) example didn't -> did , don't -> do, hasn't, has
+	        ];
 	    }
 	
 	    _createClass(ClearPunctuatio, [{
