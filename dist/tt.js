@@ -15,8 +15,6 @@ let bigText = "Newspapers are typically published daily or weekly. News magazine
     "reader \"what it all means\" and persuading them to concur. Papers also include articles which have no " +
     "byline; these articles are written by staff writers.";
 
-let cleaner = new home.ClearPunctuatio();
-
-let processed = cleaner.startProcessing(bigText);
+let processed = easy.ProcessTextAllModules(bigText);
 
 console.log(processed);

@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var webpack = require('webpack');
+var webpack = require('gulp-webpack');
 
 
 gulp.task('browser:build', function () {
@@ -41,3 +41,16 @@ gulp.task('node:build', function() {
 });
 
 gulp.task('build', ['lint:src', 'node:build']);
+
+gulp.task('build:webpack', function () {
+    return gulp.src('./lib/index.js')
+        .pipe(webpack({
+            output: {
+                filename: 'lib.js',
+                library: "easy",
+            },
+        }))
+        .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('ugly:build', ['node:build', 'build:webpack']);

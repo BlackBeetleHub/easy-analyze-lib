@@ -8,7 +8,7 @@ const needModules = [
     new DigitCleaner()
 ];
 
-export function ProcessText(text){
+export function ProcessTextAllModules(text){
     for(let i = 0; i < needModules.length; i++){
         text = needModules[i].startProcessing(text);
     }
