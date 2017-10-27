@@ -17,4 +17,8 @@ let bigText = "Newspapers are typically published daily or weekly. News magazine
 
 let processed = easy.ProcessTextAllModules(bigText);
 
+let ss = easy.BasicInformation.GetCountUsageWord("by", bigText);
+
+console.log(ss);
+
 console.log(processed);

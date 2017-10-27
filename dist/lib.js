@@ -54,8 +54,9 @@ var easy =
 	exports.DuplicationCleaner = __webpack_require__(3).DuplicationCleaner;
 	exports.DigitCleaner = __webpack_require__(4).DigitCleaner;
 	exports.ProcessTextAllModules = __webpack_require__(5).ProcessTextAllModules;
-	exports.Word = __webpack_require__(6).Word;
-	exports.Dictionary = __webpack_require__(7).Dictionary;
+	exports.BasicInformation = __webpack_require__(6).BasicInformation;
+	exports.Word = __webpack_require__(7).Word;
+	exports.Dictionary = __webpack_require__(8).Dictionary;
 	exports["default"] = module.exports;
 
 /***/ }),
@@ -284,6 +285,44 @@ var easy =
 	    value: true
 	});
 
+	var BasicInformation = exports.BasicInformation = (function () {
+	    function BasicInformation() {
+	        _classCallCheck(this, BasicInformation);
+	    }
+
+	    _createClass(BasicInformation, null, {
+	        GetCountUsageWord: {
+	            value: function GetCountUsageWord(word, text) {
+	                if (!word) {
+	                    return 0;
+	                }var res = 0,
+	                    index = 0;
+	                while ((index = text.indexOf(word)) >= 0) {
+	                    text = text.substring(index + word.length);
+	                    res++;
+	                }
+	                return res;
+	            }
+	        }
+	    });
+
+	    return BasicInformation;
+	})();
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var key in props) { var prop = props[key]; prop.configurable = true; if (prop.value) prop.writable = true; } Object.defineProperties(target, props); } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
 	var Word = exports.Word = (function () {
 	    function Word(word) {
 	        _classCallCheck(this, Word);
@@ -306,7 +345,7 @@ var easy =
 	})();
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -319,7 +358,7 @@ var easy =
 	    value: true
 	});
 
-	var Word = __webpack_require__(6).Word;
+	var Word = __webpack_require__(7).Word;
 
 	var Dictionary = exports.Dictionary = (function () {
 	    function Dictionary(texts) {

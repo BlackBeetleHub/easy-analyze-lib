@@ -40,8 +40,6 @@ gulp.task('node:build', function() {
         .pipe(gulp.dest('lib'));
 });
 
-gulp.task('build', ['lint:src', 'node:build']);
-
 gulp.task('build:webpack', function () {
     return gulp.src('./lib/index.js')
         .pipe(webpack({
@@ -53,4 +51,4 @@ gulp.task('build:webpack', function () {
         .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('ugly:build', ['node:build', 'build:webpack']);
+gulp.task('build', ['node:build', 'build:webpack']);
