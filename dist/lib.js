@@ -45,22 +45,45 @@ var easy =
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function(module) {"use strict";
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.ClearPunctuatio = __webpack_require__(1).ClearPunctuatio;
-	exports.DuplicationCleaner = __webpack_require__(3).DuplicationCleaner;
-	exports.DigitCleaner = __webpack_require__(4).DigitCleaner;
-	exports.ProcessTextAllModules = __webpack_require__(5).ProcessTextAllModules;
-	exports.BasicInformation = __webpack_require__(6).BasicInformation;
-	exports.Word = __webpack_require__(7).Word;
-	exports.Dictionary = __webpack_require__(8).Dictionary;
-	exports["default"] = module.exports;
+	var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { "default": obj }; };
+
+	var ClearPunctuatio = __webpack_require__(2).ClearPunctuatio;
+
+	var DuplicationCleaner = __webpack_require__(4).DuplicationCleaner;
+
+	var DigitCleaner = __webpack_require__(5).DigitCleaner;
+
+	var ProcessText = _interopRequireWildcard(__webpack_require__(6));
+
+	var BasicInformation = __webpack_require__(7).BasicInformation;
+
+	var Word = __webpack_require__(8).Word;
+
+	var Dictionary = __webpack_require__(9).Dictionary;
+
+	module.exports = module.imports;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)(module)))
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+	module.exports = function(module) {
+		if(!module.webpackPolyfill) {
+			module.deprecate = function() {};
+			module.paths = [];
+			// module.parent = undefined by default
+			module.children = [];
+			module.webpackPolyfill = 1;
+		}
+		return module;
+	}
+
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -77,7 +100,7 @@ var easy =
 	    value: true
 	});
 
-	var ProcessModule = __webpack_require__(2).ProcessModule;
+	var ProcessModule = __webpack_require__(3).ProcessModule;
 
 	var ClearPunctuatio = exports.ClearPunctuatio = (function (_ProcessModule) {
 	    function ClearPunctuatio() {
@@ -120,7 +143,7 @@ var easy =
 	})(ProcessModule);
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -148,7 +171,7 @@ var easy =
 	})();
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -165,7 +188,7 @@ var easy =
 	    value: true
 	});
 
-	var ProcessModule = __webpack_require__(2).ProcessModule;
+	var ProcessModule = __webpack_require__(3).ProcessModule;
 
 	var DuplicationCleaner = exports.DuplicationCleaner = (function (_ProcessModule) {
 	    function DuplicationCleaner() {
@@ -188,7 +211,7 @@ var easy =
 	})(ProcessModule);
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -205,7 +228,7 @@ var easy =
 	    value: true
 	});
 
-	var ProcessModule = __webpack_require__(2).ProcessModule;
+	var ProcessModule = __webpack_require__(3).ProcessModule;
 
 	var DigitCleaner = exports.DigitCleaner = (function (_ProcessModule) {
 	    function DigitCleaner() {
@@ -246,21 +269,22 @@ var easy =
 	})(ProcessModule);
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	exports.ProcessTextAllModules = ProcessTextAllModules;
+	exports.GetUnknownWords = GetUnknownWords;
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
-	var ClearPunctuatio = __webpack_require__(1).ClearPunctuatio;
+	var ClearPunctuatio = __webpack_require__(2).ClearPunctuatio;
 
-	var DuplicationCleaner = __webpack_require__(3).DuplicationCleaner;
+	var DuplicationCleaner = __webpack_require__(4).DuplicationCleaner;
 
-	var DigitCleaner = __webpack_require__(4).DigitCleaner;
+	var DigitCleaner = __webpack_require__(5).DigitCleaner;
 
 	var needModules = [new ClearPunctuatio(), new DuplicationCleaner(), new DigitCleaner()];
 
@@ -271,8 +295,27 @@ var easy =
 	    return text;
 	}
 
+	function GetUnknownWords(allWords, knownWords) {
+	    var result = [];
+	    var knowWords = [];
+	    for (var i = 0; i < allWords.length; i++) {
+	        var isKnown = false;
+	        for (var t = 0; t < knownWords.length; t++) {
+	            if (allWords[i] === knownWords[t].Word_value) {
+	                knowWords.push(knownWords[t]);
+	                isKnown = true;
+	                break;
+	            }
+	        }
+	        if (!isKnown) {
+	            result.push(allWords[i]);
+	        }
+	    }
+	    return result;
+	}
+
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -310,7 +353,7 @@ var easy =
 	})();
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -345,7 +388,7 @@ var easy =
 	})();
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -358,7 +401,7 @@ var easy =
 	    value: true
 	});
 
-	var Word = __webpack_require__(7).Word;
+	var Word = __webpack_require__(8).Word;
 
 	var Dictionary = exports.Dictionary = (function () {
 	    function Dictionary(texts) {
